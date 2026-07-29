@@ -32,7 +32,7 @@ A virtualized Active Directory environment built from scratch to simulate a smal
 
 Configured a Windows Server 2019 virtual machine in Oracle VirtualBox with dual network adapters (NAT + Internal Network), 4 GB RAM, 4 virtual CPUs, and a 50 GB virtual disk.
 
-![1](images/1__VM_Setup.png)
+![VM Setup](images/vm-setup.png)
 
 ---
 
@@ -40,7 +40,7 @@ Configured a Windows Server 2019 virtual machine in Oracle VirtualBox with dual 
 
 Completed the Windows Server installation and verified the initial Server Manager dashboard after first boot.
 
-![2](images/2__First_Wind_Loadup.png)
+![Windows Server Install](images/windows-server-install.png)
 
 ---
 
@@ -48,7 +48,7 @@ Completed the Windows Server installation and verified the initial Server Manage
 
 Assigned a static IP address (172.16.0.1/24) to the internal network adapter and configured the server to use itself as the DNS server.
 
-![3](images/3__ipv4_setup.png)
+![IPv4 Configuration](images/ipv4-configuration.png)
 
 ---
 
@@ -56,7 +56,7 @@ Assigned a static IP address (172.16.0.1/24) to the internal network adapter and
 
 Renamed the server to **DC** and verified the hostname before promoting it to a domain controller.
 
-![4](images/4__Server_Renamed.png)
+![Server Renamed](images/server-renamed.png)
 
 ---
 
@@ -64,7 +64,7 @@ Renamed the server to **DC** and verified the hostname before promoting it to a 
 
 Installed the Active Directory Domain Services (AD DS) and DNS roles and promoted the server to a domain controller for **mydomain.com**.
 
-![5](images/5__Active_direcory_installed.png)
+![Active Directory Installed](images/active-directory-installed.png)
 
 ---
 
@@ -72,7 +72,7 @@ Installed the Active Directory Domain Services (AD DS) and DNS roles and promote
 
 Installed and enabled Routing and Remote Access (RRAS) as part of the domain controller's network services.
 
-![6](images/6__routing-and-remote-access-configured.png)
+![RRAS Configured](images/rras-configured.png)
 
 ---
 
@@ -85,7 +85,7 @@ Verified that the required Windows Server roles were successfully installed and 
 - DHCP
 - Remote Access
 
-![7](images/7__remote_access_roles_installed.png)
+![Server Roles Installed](images/server-roles-installed.png)
 
 ---
 
@@ -93,7 +93,7 @@ Verified that the required Windows Server roles were successfully installed and 
 
 Created a DHCP scope (172.16.0.100 – 172.16.0.200) to automatically assign IP addresses to client computers joining the internal network.
 
-![8](images/8__dhcp_scope_configured.png)
+![DHCP Scope Configured](images/dhcp-scope-configured.png)
 
 ---
 
@@ -101,7 +101,7 @@ Created a DHCP scope (172.16.0.100 – 172.16.0.200) to automatically assign IP 
 
 Executed a PowerShell script that automatically generated multiple Active Directory user accounts inside the `_USERS` organizational unit.
 
-![9](images/9__Powershell_user_creation.png)
+![PowerShell User Creation](images/powershell-user-creation.png)
 
 ---
 
@@ -109,7 +109,7 @@ Executed a PowerShell script that automatically generated multiple Active Direct
 
 Verified that the PowerShell script successfully created the user accounts within Active Directory Users and Computers.
 
-![10](images/10__Active_directory_users.png)
+![Active Directory Users](images/active-directory-users.png)
 
 ---
 
@@ -117,7 +117,7 @@ Verified that the PowerShell script successfully created the user accounts withi
 
 Confirmed the Windows 10 client successfully received a DHCP lease, resolved DNS, and accessed the internet through the domain controller.
 
-![11](images/11__Client_network_connectivity.png)
+![Client Network Connectivity](images/client-network-connectivity.png)
 
 ---
 
@@ -125,7 +125,7 @@ Confirmed the Windows 10 client successfully received a DHCP lease, resolved DNS
 
 Joined the Windows 10 client (**CLIENT1**) to **mydomain.com** and verified successful domain membership.
 
-![12](images/12__Client_joined_domain.png)
+![Client Joined Domain](images/client-joined-domain.png)
 
 ---
 
@@ -133,7 +133,7 @@ Joined the Windows 10 client (**CLIENT1**) to **mydomain.com** and verified succ
 
 Confirmed the domain controller successfully issued a DHCP lease to CLIENT1.
 
-![13](images/13__DHCP_Address_Leases.png)
+![DHCP Address Leases](images/dhcp-address-leases.png)
 
 ---
 
@@ -141,7 +141,7 @@ Confirmed the domain controller successfully issued a DHCP lease to CLIENT1.
 
 Verified that CLIENT1 automatically appeared as a computer object within Active Directory Users and Computers after joining the domain.
 
-![14](images/14__Client_1_in_active_directory.png)
+![Client in Active Directory](images/client-in-active-directory.png)
 
 ---
 
@@ -149,7 +149,7 @@ Verified that CLIENT1 automatically appeared as a computer object within Active 
 
 Verified both the Domain Controller and Windows 10 client running simultaneously inside Oracle VirtualBox.
 
-![15](images/15__Virtual_box_overview.png)
+![VirtualBox Overview](images/virtualbox-overview.png)
 
 ---
 
