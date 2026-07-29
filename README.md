@@ -153,6 +153,74 @@ Verified both the Domain Controller and Windows 10 client running simultaneously
 
 ---
 
+## 16. Review Default Password and Account Lockout Policy
+
+Reviewed the default Password Policy and Account Lockout Policy settings within the Default Domain Policy to establish a baseline before applying changes.
+
+![Password Policy Before](images/01_password-policy-before.png)
+![Account Lockout Policy Before](images/03_account-lockout-before.png)
+
+---
+
+## 17. Configure Password and Account Lockout Policy
+
+Configured the Default Domain Policy to enforce a 12-character minimum password length and a 5-attempt account lockout threshold with a 10-minute lockout duration.
+
+![Password Policy After](images/02_password-policy-after.png)
+![Account Lockout Policy After](images/04_account-lockout-after.png)
+
+---
+
+## 18. Verify Password Policy on the Client
+
+Ran `gpupdate /force` on the domain-joined Windows 10 client and confirmed the updated password and lockout policy using `net accounts`.
+
+![Client Password Policy Verification](images/05_client-net-accounts-proof.png)
+
+---
+
+## 19. Create and Link a Control Panel Restriction GPO
+
+Created a new GPO scoped to the `_USERS` organizational unit to restrict standard users from accessing Control Panel and PC settings.
+
+![GPOs Linked to _USERS](images/10_gpo-mapdrive-linked.png)
+
+---
+
+## 20. Configure the Control Panel Restriction Policy
+
+Reviewed the default (Not Configured) state of the Control Panel policy settings, then enabled "Prohibit access to Control Panel and PC settings."
+
+![Control Panel Setting Before](images/07_controlpanel-setting-before.png)
+![Control Panel Setting After](images/08_controlpanel-setting-after.png)
+
+---
+
+## 21. Verify Control Panel Restriction on the Client
+
+Logged in as a standard domain user in the `_USERS` OU and confirmed Control Panel access was successfully blocked.
+
+![Control Panel Blocked](images/09_controlpanel-blocked-proof.png)
+
+---
+
+## 22. Create a Shared Folder and Configure Drive Mapping GPO
+
+Created and shared a folder (`CompanyShare`) on the domain controller, then configured a GPO Preference to automatically map it as a network drive for users in the `_USERS` OU.
+
+![Drive Maps Before](images/11_drivemaps-before.png)
+![Drive Maps After](images/12_drivemaps-after.png)
+
+---
+
+## 23. Verify Mapped Network Drive on the Client
+
+Confirmed the mapped network drive appeared automatically under "This PC" after logging in as a domain user in the `_USERS` OU.
+
+![Mapped Drive Verified](images/13_client-mapped-drive-proof.png)
+
+---
+
 # Skills Demonstrated
 
 - Built a Windows Server 2019 Domain Controller from scratch
@@ -165,12 +233,13 @@ Verified both the Domain Controller and Windows 10 client running simultaneously
 - Verified DHCP leasing, DNS resolution, and domain authentication
 - Managed users and computers through Active Directory Users and Computers (ADUC)
 - Built and administered a multi-machine virtual enterprise lab using Oracle VirtualBox
-
+- Configured Group Policy Objects (GPOs) to enforce domain-wide password and account lockout policies
+- Applied OU-scoped GPOs to restrict user access and automate network drive mapping
+- Verified Group Policy application on a domain-joined client using `gpupdate` and `net accounts`
 ---
 
 # Future Improvements
 
-- Configure Group Policy Objects (GPOs) for password policies and security settings
 - Add additional Windows clients to simulate a larger enterprise environment
 - Create file shares and configure NTFS permissions
 - Configure roaming profiles and folder redirection
